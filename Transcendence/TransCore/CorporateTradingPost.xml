@@ -25,6 +25,32 @@
 			attributes=			"corporate, corporateCustoms, envAir, envEarth, envFire, envWater, friendly, independent, generic, human, populated"
 			>
 
+		<Properties>
+
+			<DynamicGlobal id="defaultMaxOrders">
+				(or
+					(typ@ gType 'configDefaultMaxOrders)
+					1
+					)
+			</DynamicGlobal>
+			
+			<!--
+			Set this property with typSet@ to adjust the max orders globally
+			for newely created stations
+			-->
+			<Global id="configDefaultMaxOrders"></Global>
+			
+			<!--
+			This property is managed by the order code.
+			Nil means not initialized.
+			Negative means unlimited.
+			-->
+			<Data id="maxOrders"></Data>
+			<Data id="ordersMade"></Data>
+			<Data id="orderCooldown"></Data>
+
+		</Properties>
+
 		<!-- Encounter Info -->
 
 		<Encounter
@@ -71,6 +97,10 @@
 		</Trade>
 
 		<Events>
+			<onCreate>
+				(objSet@ gSource 'ordersRemaining (obj@ gSource 'defaultMaxOrders))
+			</onCreate>
+
 			<OnObjDestroyed>
 				(if (and (eq (objGetData gSource "MissionStatus") "intransit")
 						(eq aObjDestroyed (objGetObjRefData gSource "Transport")))
@@ -108,12 +138,32 @@
 									(eq (objGetData gSource "MissionStatus") "failed")
 										(scrShowScreen gScreen "OrderFailed")
 
-									; If the player has exceeded quota, then she cannot order
-									(geq (objGetData gSource "OrderCount") 1)
-										(scrShowScreen gScreen "QuotaExceeded")
+									(block (
+											(legacyOrderCount (objGetData gSource 'OrderCount))
+											(objOrdersRemaining (obj@ gSource 'ordersRemaining))
+											(ordersRemaining (or
+												objOrdersRemaining
+												;	Handle legacy saves vs new uninitialized stations
+												(if legacyOrderCount
+													(- 1 legacyOrderCount)
+													(obj@ gSource 'defaultMaxOrders)
+													)
+												))
+											)
+										
+										;	Initialize if needed
+										
+										(if (not objOrdersRemaining)
+											(objSet@ gSource 'ordersRemaining ordersRemaining)
+											)
+										
+										;	Show the screen if we have orders remaining
 
-									; Show order screen	
-									(scrShowScreen gScreen "OrderItem")
+										(if (= ordersRemaining 0)
+											(scrShowScreen gScreen "QuotaExceeded")
+											(scrShowScreen gScreen "OrderItem")
+											)
+										)
 									)
 							</Action>
 
@@ -308,7 +358,13 @@
 									; Charge the player
 									(plyCharge gPlayer theCost)
 									(plyRecordBuyItem gPlayer theItem theCost)
-									(objIncData gSource "OrderCount" 1)
+
+									; Reduce number of orders
+									(if (geq (obj@ gSource 'ordersRemaining) 0)
+										(objInc@ gSource 'ordersRemaining -1)
+										; If the ordersRemaining property is negative, we skip this
+										; since that signals unlimited orders
+										)
 
 									(scrShowPane gScreen "ThankYou")
 									)
