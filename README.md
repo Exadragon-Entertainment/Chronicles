@@ -1,17 +1,39 @@
-# TRANSCENDENCE SOURCE CODE
+# CHRONICLES SOURCE CODE
 
-Copyright (c) 2003-2026 by Kronosaur Productions, LLC.
+Chronicles Copyright (c) 2026 by Exadragon LLC.
+
+chronicles@exadragon.com
+
+Transcendence Copyright (c) 2003-2026 by Kronosaur Productions, LLC.
 
 https://transcendence.kronosaur.com
 
 transcendence@kronosaur.com
 
-This repo contains the source code for building the Transcendence.exe client,
-which is used to run any Transcendence adventure, including **Stars of the Pilgrim**
-from the **Domina & Oracus** saga.
+Chronicles incorporates Transcendence code and assets under license from
+Kronosaur Productions.
+
+This repo contains the source code for building the Chronicles.exe client,
+which is used to run any Chronicles or Transcendence adventure, including
+**Chronicles of the Stars** and **Stars of the Pilgrim** from the
+**Domina & Oracus** saga. Please see [TranscendenceDev](https://github.com/kronosaur/TranscendenceDev)
+for the codebase of the original game.
+
+## FORK IN PROGRESS NOTICE
+
+We are in the progress of forking the the Transcendence codebase while
+maintaining a shared commit history so that cherrypicking can be performed
+between the two codebases.
+
+Much of this readme will continue to reference Transcendence & existing
+resource links for the time being.
+
+## RELATED REPOSITORIES
 
 Note that there are several other repositories that are relevant to this
 project but are not necessary for building it from scratch.
+
+Original Game: [TranscendenceDev](https://github.com/kronosaur/TranscendenceDev)
 
 Art Assets: [TransArt](https://github.com/kronosaur/TranscendenceArt)
 
