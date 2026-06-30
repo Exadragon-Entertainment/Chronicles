@@ -10,6 +10,9 @@ https://transcendence.kronosaur.com
 
 transcendence@kronosaur.com
 
+Chronicles incorporates Transcendence code and assets under license from
+Kronosaur Productions.
+
 This repo contains the source code for building the Chronicles.exe client,
 which is used to run any Chronicles or Transcendence adventure, including
 **Chronicles of the Stars** and **Stars of the Pilgrim** from the
