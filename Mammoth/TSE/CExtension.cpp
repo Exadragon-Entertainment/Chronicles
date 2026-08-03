@@ -478,9 +478,11 @@ ALERROR CExtension::CreateBaseFile (SDesignLoadCtx &Ctx, EGameTypes iGame, CXMLE
 		else if (strEquals(pItem->GetTag(), SYSTEM_TYPES_TAG))
 			error = pExtension->LoadSystemTypesElement(Ctx, pItem);
 
-		//	<TranscendenceAdventure>
+		//	Embedded extension doctypes
 
-		else if (strEquals(pItem->GetTag(), TRANSCENDENCE_ADVENTURE_TAG)
+		else if (strEquals(pItem->GetTag(), CHRONICLES_ADVENTURE_TAG)
+				|| strEquals(pItem->GetTag(), CHRONICLES_LIBRARY_TAG)
+				|| strEquals(pItem->GetTag(), TRANSCENDENCE_ADVENTURE_TAG)
 				|| strEquals(pItem->GetTag(), TRANSCENDENCE_LIBRARY_TAG)
 				|| strEquals(pItem->GetTag(), CORE_LIBRARY_TAG))
 			{
@@ -702,6 +704,15 @@ ALERROR CExtension::CreateExtensionFromRoot (const CString &sFilespec, CXMLEleme
 	pExtension->m_sName = pDesc->GetAttribute(NAME_ATTRIB);
 	if (pExtension->m_sName.IsBlank())
 		pExtension->m_sName = strPatternSubst(CONSTLIT("Extension %x"), pExtension->m_dwUNID);
+
+	//	If this is a transcendence extension, but it higher than we can safely support, emit a warning
+
+	if (pExtension->m_iGame == gameTranscendence && pExtension->m_dwAPIVersion > TRANSCENDENCE_MAX_SAFE_API_VERSION)
+		kernelDebugLogPattern(
+			CONSTLIT("WARNING: %s is a Transcendence extension, but its API version %i is higher than the max safe Transcendence API version of %i on this version of Chronicles. You may experience errors running this extension."),
+			pExtension->m_sName,
+			pExtension->m_dwAPIVersion,
+			TRANSCENDENCE_MAX_SAFE_API_VERSION);
 
 	//	Image
 
