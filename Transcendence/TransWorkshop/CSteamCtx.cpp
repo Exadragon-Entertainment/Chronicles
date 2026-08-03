@@ -2,6 +2,7 @@
 //
 //	CSteamCtx class
 //	Copyright (c) 2016 by Kronosaur Productions, LLC. All Rights Reserved.
+//	Copyright (c) 2026 by Exadragon LLC. All Rights Reserved.
 
 #include "stdafx.h"
 
