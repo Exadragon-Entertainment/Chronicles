@@ -2,6 +2,7 @@
 //
 //	Basic types
 //	Copyright 2012 by Kronosaur Productions, LLC. All Rights Reserved.
+//	Copyright 2026 by Exadragon LLC. All Rights Reserved.
 
 #pragma once
 

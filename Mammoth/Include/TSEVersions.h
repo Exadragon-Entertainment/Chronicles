@@ -12,6 +12,7 @@ constexpr DWORD SYSTEM_SAVE_VERSION =					221;
 
 //	This is the max transcendence API version we can confirm safe cross-game support for
 //	because Transcendence's API is a subset of Chronicle's API up till this point
+
 constexpr DWORD TRANSCENDENCE_MAX_SAFE_API_VERSION =	59;
 
 //	Uncomment out the following define when building a stable release
