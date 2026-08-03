@@ -2,6 +2,7 @@
 //
 //	CExtensionDirectory class
 //	Copyright (c) 2016 by Kronosaur Productions, LLC. All Rights Reserved.
+//	Copyright (c) 2026 by Exadragon LLC. All Rights Reserved.
 
 #include "stdafx.h"
 
@@ -15,8 +16,13 @@
 #define EXTENSIONS_FILTER               CONSTLIT("*.tdb")
 #define FOLDER_COLLECTION				CONSTLIT("Collection")
 
+#define CHRONICLES_TDB					CONSTLIT("Chronicles.tdb")
 #define TRANSCENDENCE_TDB               CONSTLIT("Transcendence.tdb")
 
+#define CHRONICLES_ADVENTURE_TAG		CONSTLIT("ChroniclesAdventure")
+#define CHRONICLES_EXTENSION_TAG		CONSTLIT("ChroniclesExtension")
+#define CHRONICLES_LIBRARY_TAG			CONSTLIT("ChroniclesLibrary")
+#define CHRONICLES_MODULE_TAG			CONSTLIT("ChroniclesModule")
 #define CORE_LIBRARY_TAG				CONSTLIT("CoreLibrary")
 #define IMAGE_TAG						CONSTLIT("Image")
 #define LIBRARY_TAG                     CONSTLIT("Library")
@@ -579,7 +585,13 @@ bool CExtensionDirectory::LoadExtensionStub (const CString &sFilespec, SExtensio
     pExtension->sName = pRoot->GetAttribute(ATTRIB_NAME);
     pExtension->sVersion = pRoot->GetAttribute(ATTRIB_VERSION);
 
-    if (strEquals(pRoot->GetTag(), TRANSCENDENCE_ADVENTURE_TAG))
+	if (strEquals(pRoot->GetTag(), CHRONICLES_ADVENTURE_TAG))
+		pExtension->iType = extAdventure;
+	else if (strEquals(pRoot->GetTag(), CHRONICLES_LIBRARY_TAG))
+		pExtension->iType = extLibrary;
+	else if (strEquals(pRoot->GetTag(), CHRONICLES_EXTENSION_TAG))
+		pExtension->iType = extExtension;
+    else if (strEquals(pRoot->GetTag(), TRANSCENDENCE_ADVENTURE_TAG))
         pExtension->iType = extAdventure;
     else if (strEquals(pRoot->GetTag(), TRANSCENDENCE_LIBRARY_TAG))
         pExtension->iType = extLibrary;

@@ -2,9 +2,14 @@
 //
 //	CExtensionCollection class
 //	Copyright (c) 2012 by Kronosaur Productions, LLC. All Rights Reserved.
+//	Copyright (c) 2026 by Exadragon LLC. All Rights Reserved.
 
 #include "PreComp.h"
 
+#define CHRONICLES_ADVENTURE_TAG					CONSTLIT("ChroniclesAdventure")
+#define CHRONICLES_EXTENSION_TAG					CONSTLIT("ChroniclesExtension")
+#define CHRONICLES_LIBRARY_TAG						CONSTLIT("ChroniclesLibrary")
+#define CHRONICLES_MODULE_TAG						CONSTLIT("ChroniclesModule")
 #define LIBRARY_TAG									CONSTLIT("Library")
 #define TRANSCENDENCE_ADVENTURE_TAG					CONSTLIT("TranscendenceAdventure")
 #define TRANSCENDENCE_EXTENSION_TAG					CONSTLIT("TranscendenceExtension")
@@ -21,6 +26,7 @@
 #define EXTENSION_XML								CONSTLIT("xml")
 
 #define FILE_AMERICA								CONSTLIT("America")
+#define FILE_CHRONICLES								CONSTLIT("Chronicles")
 #define FILE_TRANSCENDENCE							CONSTLIT("Transcendence")
 
 #define FILESPEC_COLLECTION_FOLDER					CONSTLIT("Collection")
@@ -906,6 +912,7 @@ void CExtensionCollection::ComputeCoreLibraries (CExtension *pExtension, TArray<
 		case gameAmerica:
 			break;
 
+		case gameChronicles:
 		case gameTranscendence:
 			{
 			CExtension *pLibrary;
@@ -943,6 +950,17 @@ void CExtensionCollection::ComputeCoreLibraries (CExtension *pExtension, TArray<
 			if (pExtension->GetAPIVersion() < 54)
 				{
 				if (FindBestExtension(UNID_COMPATIBILITY_LIBRARY_API54, 1, 0, &pLibrary))
+					retList->Insert(pLibrary);
+				}
+
+			//	Chronicles uses a superset of Transcendence's libraries
+
+			if (m_iGame == gameChronicles)
+				{
+				if (FindBestExtension(UNID_TACTICAL_AI_LIBRARY, 1, 0, &pLibrary))
+					retList->Insert(pLibrary);
+
+				if (FindBestExtension(UNID_SANDBOX_LIBRARY, 1, 0, &pLibrary))
 					retList->Insert(pLibrary);
 				}
 
@@ -1159,25 +1177,59 @@ ALERROR CExtensionCollection::ComputeFilesToLoad (const CString &sFilespec, CExt
 			return error;
 			}
 
-		//	If this is a module, then skip it
-
 		CString sError;
 		CString sDOCTYPERootTag = ExtDb.GetRootTag(&sError);
+
+		//	Validate the doctype (root) tag
+
 		if (sDOCTYPERootTag.IsBlank())
 			{
 			*retsError = strPatternSubst(CONSTLIT("%s: %s"), sFilepath, sError);
 			return ERR_FAIL;
 			}
-		else if (strEquals(sDOCTYPERootTag, TRANSCENDENCE_MODULE_TAG))
-			continue;
-		else if (!strEquals(sDOCTYPERootTag, TRANSCENDENCE_EXTENSION_TAG)
-				&& !strEquals(sDOCTYPERootTag, TRANSCENDENCE_ADVENTURE_TAG)
-				&& !strEquals(sDOCTYPERootTag, TRANSCENDENCE_LIBRARY_TAG))
+
+		//	Chronicles can load both Chronicles* and Transcendence* doctypes
+
+		else if (m_iGame == gameChronicles)
 			{
-			*retsError = strPatternSubst(CONSTLIT("%s: Expected <TranscendenceAdventure>, <TranscendenceExtension>, <TranscendenceLibrary> or <TranscendenceModule> instead of <%s>"), 
-					sFilepath,
-					sDOCTYPERootTag);
-			return ERR_FAIL;
+
+			//	If this is a module, then skip it
+
+			if (strEquals(sDOCTYPERootTag, CHRONICLES_MODULE_TAG)
+					|| strEquals(sDOCTYPERootTag, TRANSCENDENCE_MODULE_TAG))
+				 continue;
+			else if (!strEquals(sDOCTYPERootTag, CHRONICLES_EXTENSION_TAG)
+					&& !strEquals(sDOCTYPERootTag, CHRONICLES_ADVENTURE_TAG)
+					&& !strEquals(sDOCTYPERootTag, CHRONICLES_LIBRARY_TAG)
+					&& !strEquals(sDOCTYPERootTag, TRANSCENDENCE_EXTENSION_TAG)
+					&& !strEquals(sDOCTYPERootTag, TRANSCENDENCE_ADVENTURE_TAG)
+					&& !strEquals(sDOCTYPERootTag, TRANSCENDENCE_LIBRARY_TAG))
+				 {
+				 *retsError = strPatternSubst(CONSTLIT("%s: Expected <TranscendenceAdventure>, <TranscendenceExtension>, <TranscendenceLibrary> or <TranscendenceModule> instead of <%s>"), 
+						sFilepath,
+						sDOCTYPERootTag);
+				 return ERR_FAIL;
+				 }
+			}
+
+		//	Transcendence can only load Transcendence* doctypes
+
+		else if (m_iGame == gameTranscendence)
+			{
+
+			//	If this is a module, then skip it
+
+			if (strEquals(sDOCTYPERootTag, TRANSCENDENCE_MODULE_TAG))
+				continue;
+			else if (!strEquals(sDOCTYPERootTag, TRANSCENDENCE_EXTENSION_TAG)
+					&& !strEquals(sDOCTYPERootTag, TRANSCENDENCE_ADVENTURE_TAG)
+					&& !strEquals(sDOCTYPERootTag, TRANSCENDENCE_LIBRARY_TAG))
+				 {
+				 *retsError = strPatternSubst(CONSTLIT("%s: Expected <TranscendenceAdventure>, <TranscendenceExtension>, <TranscendenceLibrary> or <TranscendenceModule> instead of <%s>"), 
+						sFilepath,
+						sDOCTYPERootTag);
+				 return ERR_FAIL;
+				 }
 			}
 
 		//	Add the full filepath to our list
@@ -1735,7 +1787,9 @@ ALERROR CExtensionCollection::LoadBaseFile (const CString &sFilespec, DWORD dwFl
 	//	Figure out what game we're running.
 
 	CString sFilename = pathStripExtension(pathGetFilename(sFilespec));
-	if (strEquals(sFilename, FILE_TRANSCENDENCE))
+	if (strEquals(sFilename, FILE_CHRONICLES))
+		m_iGame = gameChronicles;
+	else if (strEquals(sFilename, FILE_TRANSCENDENCE))
 		m_iGame = gameTranscendence;
 	else if (strEquals(sFilename, FILE_AMERICA))
 		m_iGame = gameAmerica;

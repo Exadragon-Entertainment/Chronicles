@@ -2,6 +2,7 @@
 //
 //	CTDBCompiler class
 //	Copyright (c) 2015 by Kronosaur Productions, LLC. All Rights Reserved.
+//	Copyright (c) 2026 by Exadragon LLC. All Rights Reserved.
 
 #include "PreComp.h"
 #include "TDBCompiler.h"
@@ -12,12 +13,16 @@
 #define ATTRIB_FILENAME							CONSTLIT("filename")
 
 #define FILENAME_AMERICA						CONSTLIT("America.xml")
+#define FILENAME_CHRONICLES						CONSTLIT("Chronicles.xml")
 #define FILENAME_TRANSCENDENCE					CONSTLIT("Transcendence.xml")
 
 #define TAG_AMERICA_CAMPAIGN					CONSTLIT("AmericaCampaign")
 #define TAG_AMERICA_LIBRARY						CONSTLIT("AmericaLibrary")
 #define TAG_AMERICA_EXTENSION					CONSTLIT("AmericaExtension")
 #define TAG_CORE_LIBRARY						CONSTLIT("CoreLibrary")
+#define TAG_CHRONICLES_ADVENTURE				CONSTLIT("ChroniclesAdventure")
+#define TAG_CHRONICLES_EXTENSION				CONSTLIT("ChroniclesExtension")
+#define TAG_CHRONICLES_LIBRARY					CONSTLIT("ChroniclesLibrary")
 #define TAG_TRANSCENDENCE_ADVENTURE				CONSTLIT("TranscendenceAdventure")
 #define TAG_TRANSCENDENCE_EXTENSION				CONSTLIT("TranscendenceExtension")
 #define TAG_TRANSCENDENCE_LIBRARY				CONSTLIT("TranscendenceLibrary")
@@ -56,7 +61,7 @@ bool CTDBCompiler::AddCoreEntityTables (const CString &sCoreTDB, CString *retsEr
 
 	AddEntityTable(pRootEntities);
 
-	//	Loop over all sub elements and see if we find any TranscendenceLibrary
+	//	Loop over all sub elements and see if we find any CoreLibrary
 	//	references. If so, we need to add them to our entity tables.
 
 	for (i = 0; i < pRootXML->GetContentElementCount(); i++)
@@ -138,6 +143,8 @@ bool CTDBCompiler::Init (const CString &sInputFilespec, const CString &sOutputFi
 
 	if (strEquals(sInputFilename, FILENAME_AMERICA))
 		m_iType = typeAmericaUniverse;
+	else if (strEquals(sInputFilename, FILENAME_CHRONICLES))
+		m_iType = typeChroniclesUniverse;
 	else if (strEquals(sInputFilename, FILENAME_TRANSCENDENCE))
 		m_iType = typeTranscendenceUniverse;
 
@@ -157,19 +164,35 @@ bool CTDBCompiler::Init (const CString &sInputFilespec, const CString &sOutputFi
 				|| strEquals(sRootTag, TAG_TRANSCENDENCE_EXTENSION)
 				|| strEquals(sRootTag, TAG_TRANSCENDENCE_LIBRARY))
 			m_iType = typeTransExtension;
+		else if (strEquals(sRootTag, TAG_CHRONICLES_ADVENTURE)
+				|| strEquals(sRootTag, TAG_AMERICA_EXTENSION)
+				|| strEquals(sRootTag, TAG_CHRONICLES_LIBRARY))
+			m_iType = typeChroniclesExtension;
 		else if (strEquals(sRootTag, TAG_AMERICA_CAMPAIGN)
 				|| strEquals(sRootTag, TAG_AMERICA_EXTENSION)
 				|| strEquals(sRootTag, TAG_AMERICA_LIBRARY))
 			m_iType = typeAmericaExtension;
 		}
 
-	//	For Transcendence extensions we need to include entities from 
-	//	Transcendence.tdb
+	//	For Chronicles extensions we need to include entities from
+	//	Chronicles.tdb
 
-	if (m_iType == typeTransExtension)
+	if (m_iType == typeChroniclesExtension)
 		{
-		if (!AddCoreEntityTables(CONSTLIT("Transcendence.tdb"), retsError))
+		if (!AddCoreEntityTables(CONSTLIT("Chronicles.tdb"), retsError))
 			return false;
+		}
+
+	//	For Transcendence extensions we need to include entities from 
+	//	Transcendence.tdb or Chronicles.tdb
+
+	else if (m_iType == typeTransExtension)
+		{
+		if (!AddCoreEntityTables(CONSTLIT("Chronicles.tdb"), retsError))
+			{
+			if (!AddCoreEntityTables(CONSTLIT("Transcendence.tdb"), retsError))
+				return false;
+			}
 		}
 
 	//	For CSC America extension we include entities from America.tdb

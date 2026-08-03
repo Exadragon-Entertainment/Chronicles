@@ -105,7 +105,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Transcendence.xml" />
+    <None Include="Chronicles.xml" />
     <None Include="CoreCode.xml">
       <Filter>Core Types</Filter>
     </None>

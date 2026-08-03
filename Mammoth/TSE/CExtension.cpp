@@ -2,6 +2,7 @@
 //
 //	CExtension class
 //	Copyright (c) 2012 by Kronosaur Productions, LLC. All Rights Reserved.
+//	Copyright (c) 2026 by Exadragon LLC. All Rights Reserved.
 //
 //
 //	See: LoadExtensionVersion in Utilities.cpp
@@ -9,6 +10,10 @@
 #include "PreComp.h"
 
 #define ADVENTURE_DESC_TAG						CONSTLIT("AdventureDesc")
+#define CHRONICLES_ADVENTURE_TAG				CONSTLIT("ChroniclesAdventure")
+#define CHRONICLES_EXTENSION_TAG				CONSTLIT("ChroniclesExtension")
+#define CHRONICLES_LIBRARY_TAG					CONSTLIT("ChroniclesLibrary")
+#define CHRONICLES_MODULE_TAG					CONSTLIT("ChroniclesModule")
 #define CORE_LIBRARY_TAG						CONSTLIT("CoreLibrary")
 #define GLOBALS_TAG								CONSTLIT("Globals")
 #define IMAGE_TAG								CONSTLIT("Image")
@@ -590,8 +595,23 @@ ALERROR CExtension::CreateExtensionFromRoot (const CString &sFilespec, CXMLEleme
 		*retsError = CONSTLIT("Invalid UNID.");
 		return ERR_FAIL;
 		}
-
-	if (strEquals(pDesc->GetTag(), TRANSCENDENCE_ADVENTURE_TAG))
+	
+	if (strEquals(pDesc->GetTag(), CHRONICLES_ADVENTURE_TAG))
+		{
+		pExtension->m_iGame = gameChronicles;
+		pExtension->m_iType = extAdventure;
+		}
+	else if (strEquals(pDesc->GetTag(), CHRONICLES_LIBRARY_TAG))
+		{
+		pExtension->m_iGame = gameChronicles;
+		pExtension->m_iType = extLibrary;
+		}
+	else if (strEquals(pDesc->GetTag(), CHRONICLES_EXTENSION_TAG))
+		{
+		pExtension->m_iGame = gameChronicles;
+		pExtension->m_iType = extExtension;
+		}
+	else if (strEquals(pDesc->GetTag(), TRANSCENDENCE_ADVENTURE_TAG))
 		{
 		pExtension->m_iGame = gameTranscendence;
 		pExtension->m_iType = extAdventure;

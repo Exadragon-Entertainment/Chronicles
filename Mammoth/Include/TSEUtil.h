@@ -157,7 +157,7 @@ inline void DebugStopTimer (const char *szTiming) { }
 
 //	Game load/save structures
 
-#ifdef TRANSCENDENCE_STABLE_RELEASE
+#ifdef CHRONICLES_STABLE_RELEASE
 #define UPGRADE_ENTRY_UNID								CONSTLIT("Engine:Transcendence.stable")
 #else
 #define UPGRADE_ENTRY_UNID								CONSTLIT("Engine:Transcendence.next")

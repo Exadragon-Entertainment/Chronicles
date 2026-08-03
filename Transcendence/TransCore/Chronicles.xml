@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 
-<!DOCTYPE TranscendenceUniverse
+<!DOCTYPE ChroniclesUniverse
 	[
 	<!-- 0000 0000-000F: Human Space -->
 	<!-- 0000 0010-001F: Core Types -->
@@ -131,7 +131,7 @@
 	<!-- PART I SOUNDTRACK 0082 -->
 	]>
 
-<TranscendenceUniverse
+<ChroniclesUniverse
 		apiVersion=						"59"
 		>
 
@@ -180,6 +180,6 @@
 
 <!-- CORE ADVENTURE ======================================================== -->
 
-	<TranscendenceAdventure filename="StarsOfThePilgrim.xml"/>
+	<ChroniclesAdventure filename="StarsOfThePilgrim.xml"/>
 		
-</TranscendenceUniverse>
+</ChroniclesUniverse>

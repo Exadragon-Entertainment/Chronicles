@@ -2,6 +2,7 @@
 //
 //	CTDBCompiler class
 //	Copyright (c) 2015 by Kronosaur Productions, LLC. All Rights Reserved.
+//	Copyright (c) 2026 by Exadragon LLC. All Rights Reserved.
 
 #pragma once
 
@@ -54,6 +55,8 @@ class CTDBCompiler
 
 			typeAmericaUniverse,			//	America.xml
 			typeAmericaExtension,			//	A CSC America extension of some sort
+			typeChroniclesUniverse,			//	Chronicles.xml
+			typeChroniclesExtension,		//	A Chronicles extension of some sort
 			typeTranscendenceUniverse,		//	Transcendence.xml
 			typeTransExtension,				//	A Transcendence extension of some sort
 			};

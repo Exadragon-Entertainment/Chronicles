@@ -2,6 +2,7 @@
 //
 //	Transcendence design classes
 //	Copyright 2012 by Kronosaur Productions, LLC. All Rights Reserved.
+//	Copyright 2026 by Exadragon LLC. All Rights Reserved.
 
 #pragma once
 
@@ -935,6 +936,7 @@ enum EGameTypes
 	gameUnknown,
 
 	gameAmerica,							//	CSC America
+	gameChronicles,							//	Chronicles
 	gameTranscendence,						//	Transcendence
 	};
 
