@@ -188,7 +188,7 @@ bool CTranscendenceController::CheckAndRunUpgrade (void)
 	if (m_Settings.GetAppDataFolder().IsBlank())
 		return false;
 
-	CString sExe = pathAddComponent(m_Settings.GetAppDataFolder(), CONSTLIT("Transcendence.exe"));
+	CString sExe = pathAddComponent(m_Settings.GetAppDataFolder(), CONSTLIT("Chronicles.exe"));
 	if (!pathExists(sExe))
 		return false;
 
@@ -204,7 +204,7 @@ bool CTranscendenceController::CheckAndRunUpgrade (void)
 
 	if (!fileOpen(sExe))
 		{
-		::kernelDebugLogPattern("Unable to run upgraded Transcendence.exe");
+		::kernelDebugLogPattern("Unable to run upgraded Chronicles.exe");
 		return false;
 		}
 

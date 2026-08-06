@@ -29,7 +29,7 @@ Note: Use `-p:` (dash prefix) rather than `/p:` for switches, as `/` can be misi
 
 ### Build Output
 
-The compiled executable is written to `Transcendence\Game\Transcendence.exe`.
+The compiled executable is written to `Transcendence\Game\Chronicles.exe`.
 
 ### Project Structure
 

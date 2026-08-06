@@ -320,7 +320,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransData.pdb</ProgramDatabaseFile>
@@ -366,7 +366,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransData.pdb</ProgramDatabaseFile>
@@ -457,7 +457,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransData.pdb</ProgramDatabaseFile>
@@ -502,7 +502,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransData.pdb</ProgramDatabaseFile>
@@ -548,7 +548,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransData.pdb</ProgramDatabaseFile>
@@ -591,7 +591,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransData.pdb</ProgramDatabaseFile>
@@ -635,7 +635,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransData.pdb</ProgramDatabaseFile>
@@ -678,7 +678,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransData.pdb</ProgramDatabaseFile>
@@ -722,7 +722,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransData.pdb</ProgramDatabaseFile>
@@ -766,7 +766,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransData.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -811,7 +811,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransData.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -856,7 +856,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransData.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -900,7 +900,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransData.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -943,7 +943,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransData.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -987,7 +987,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransData.exe</OutputFile>
+      <OutputFile>../Game/ChronData.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransData.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
