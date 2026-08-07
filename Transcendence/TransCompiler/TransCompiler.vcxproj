@@ -1047,7 +1047,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreComp.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="TDBCompiler.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ChronCompiler.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
