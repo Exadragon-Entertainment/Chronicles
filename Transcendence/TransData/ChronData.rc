@@ -50,8 +50,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,1,0,10059
- PRODUCTVERSION 0,1,0,10059
+ FILEVERSION 0,0,0,10000
+ PRODUCTVERSION 0,0,0,10000
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -68,12 +68,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "ExaDragon LLC"
             VALUE "FileDescription", "ChronData"
-            VALUE "FileVersion", "0.1.0-0.1-api.59"
+            VALUE "FileVersion", "0.0.0-0.0+api.59"
             VALUE "InternalName", "ChronData"
             VALUE "LegalCopyright", "Copyright © 2026 ExaDragon LLC. Portions Copyright © 2001-2026 Kronosaur Productions, LLC. All Rights Reserved."
             VALUE "OriginalFilename", "ChronData.exe"
             VALUE "ProductName", "ChronData"
-            VALUE "ProductVersion", "0.1.0-0.1-api.59"
+            VALUE "ProductVersion", "0.0 Preview 0"
         END
     END
     BLOCK "VarFileInfo"

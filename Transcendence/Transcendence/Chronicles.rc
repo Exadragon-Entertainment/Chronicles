@@ -65,8 +65,8 @@ VS_VERSION_INFO$(MULTIVERSE_BUILD) VERSIONINFO
 #else
 VS_VERSION_INFO VERSIONINFO
 #endif
- FILEVERSION 0,1,0,10059
- PRODUCTVERSION 0,1,0,10059
+ FILEVERSION 0,0,0,10000
+ PRODUCTVERSION 0,0,0,10000
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -83,13 +83,13 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "ExaDragon LLC"
             VALUE "FileDescription", "Chronicles"
-            VALUE "FileVersion", "0.1.0-0.1-api.59"
+            VALUE "FileVersion", "0.0.0-0.0+api.59"
             VALUE "InternalName", "Chronicles"
             VALUE "LegalCopyright", "Copyright © 2026 ExaDragon LLC. Portions Copyright © 2003-2026 Kronosaur Productions, LLC. All Rights Reserved."
             VALUE "LegalTrademarks", "Transcendence is a registered trademark of Kronosaur Productions, LLC. Used under license."
             VALUE "OriginalFilename", "Chronicles.exe"
             VALUE "ProductName", "Chronicles"
-            VALUE "ProductVersion", "0.1 Preview 1"
+            VALUE "ProductVersion", "0.0 Preview 0"
 			VALUE "Comments", "Licensed commercial fork under agreement with Kronosaur Productions, LLC."
         END
     END
@@ -106,8 +106,8 @@ VS_VERSION_INFO$(STEAM_BUILD) VERSIONINFO
 #else
 VS_VERSION_INFO VERSIONINFO
 #endif
- FILEVERSION 0,1,0,10059
- PRODUCTVERSION 0,1,0,10059
+ FILEVERSION 0,0,0,10000
+ PRODUCTVERSION 0,0,0,10000
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -124,13 +124,13 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "ExaDragon LLC"
             VALUE "FileDescription", "Chronicles"
-            VALUE "FileVersion", "0.1.0-0.1-api.59"
+            VALUE "FileVersion", "0.0.0-0.0+api.59"
             VALUE "InternalName", "Chronicles"
 			VALUE "LegalCopyright", "Copyright © 2026 ExaDragon LLC. Portions Copyright © 2003-2026 Kronosaur Productions, LLC. All Rights Reserved."
 			VALUE "LegalTrademarks", "Transcendence is a registered trademark of Kronosaur Productions, LLC. Used under license."
             VALUE "OriginalFilename", "Chronicles.exe"
             VALUE "ProductName", "Chronicles"
-            VALUE "ProductVersion", "0.1 Preview 1"
+            VALUE "ProductVersion", "0.0 Preview 0"
 			VALUE "Comments", "Licensed commercial fork under agreement with Kronosaur Productions, LLC."
         END
     END
