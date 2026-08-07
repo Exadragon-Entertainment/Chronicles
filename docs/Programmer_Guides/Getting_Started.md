@@ -125,7 +125,7 @@ Be aware that:
 1. Download https://downloads.kronosaur.com/TranscendenceNext.zip
 (this link has the latest alpha or beta version)
 2. Extract TranscendenceNext.zip
-3. Copy Transcendence.exe to `TranscendenceDev/Transcendence/Game`
+3. Copy Chronicles.exe to `TranscendenceDev/Transcendence/Game`
 4. You can now run the game and it will use the XML in `TranscendenceDev/Transcendence/TransCore`
 
 Optionally you can configure the game to search an existing install of Transcendence's

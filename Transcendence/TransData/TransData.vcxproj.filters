@@ -244,7 +244,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="TransData.rc">
+    <ResourceCompile Include="ChronData.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

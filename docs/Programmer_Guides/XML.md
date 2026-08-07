@@ -148,7 +148,7 @@ The following are the document tag types that Transcendence will recognize.
 ## `<TranscendenceUniverse>`
 
 ### Attributes
-* apiVersion: the API version of this TranscendenceUniverse. It MUST match the API version of transcendence.exe.
+* apiVersion: the API version of this TranscendenceUniverse. It MUST match the API version of Chronicles.exe.
 
 ## `<CoreLibrary>`
 
@@ -387,7 +387,7 @@ None
 ## `<Module>`
 
 `<Modules>` tags define the modules that are loaded as a part of this Universe/Library/Adventure/Extension
-Modules are included in the output tdb when compiling with transcompiler.exe
+Modules are included in the output tdb when compiling with ChronCompiler.exe
 
 ### Attributes
 - **Filename**: the relative path to the module

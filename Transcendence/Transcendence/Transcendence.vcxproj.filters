@@ -462,7 +462,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Transcendence.rc">
+    <ResourceCompile Include="Chronicles.rc">
       <Filter>Resources</Filter>
     </ResourceCompile>
   </ItemGroup>

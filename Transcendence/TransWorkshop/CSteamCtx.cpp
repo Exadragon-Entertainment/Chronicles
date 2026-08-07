@@ -2,6 +2,7 @@
 //
 //	CSteamCtx class
 //	Copyright (c) 2016 by Kronosaur Productions, LLC. All Rights Reserved.
+//	Copyright (c) 2026 by Exadragon LLC. All Rights Reserved.
 
 #include "stdafx.h"
 
@@ -112,19 +113,19 @@ bool CSteamCtx::GetOrCreateItem (DWORD dwUNID, EExtensionTypes iType, PublishedF
 		switch (iType)
 			{
 			case extAdventure:
-				SteamUGC()->AddItemKeyValueTag(Update, (LPSTR)FIELD_TYPE, "transcendenceAdventure");
+				SteamUGC()->AddItemKeyValueTag(Update, (LPSTR)FIELD_TYPE, "chroniclesAdventure");
 				break;
 
 			case extExtension:
-				SteamUGC()->AddItemKeyValueTag(Update, (LPSTR)FIELD_TYPE, "transcendenceExpansion");
+				SteamUGC()->AddItemKeyValueTag(Update, (LPSTR)FIELD_TYPE, "chroniclesExpansion");
 				break;
 
 			case extLibrary:
-				SteamUGC()->AddItemKeyValueTag(Update, (LPSTR)FIELD_TYPE, "transcendenceLibrary");
+				SteamUGC()->AddItemKeyValueTag(Update, (LPSTR)FIELD_TYPE, "chroniclesLibrary");
 				break;
 
 			default:
-				SteamUGC()->AddItemKeyValueTag(Update, (LPSTR)FIELD_TYPE, "transcendenceExtension");
+				SteamUGC()->AddItemKeyValueTag(Update, (LPSTR)FIELD_TYPE, "chroniclesExtension");
 				break;
 			}
 

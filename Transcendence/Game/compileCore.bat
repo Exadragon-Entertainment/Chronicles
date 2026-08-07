@@ -1,2 +1,2 @@
-@rem Compiles Transcendence.tdb
-@transcompiler /input:"..\TransCore\Transcendence.xml" /output:Transcendence.tdb /digest
+@rem Compiles Chronicles.tdb
+@chroncompiler /input:"..\TransCore\Chronicles.xml" /output:Chronicles.tdb /digest

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!DOCTYPE TranscendenceAdventure
+<!DOCTYPE ChroniclesAdventure
 	[
 	<!-- 0020xxxx THE STARS OF THE PILGRIM ADVENTURE ======================= -->
 	
@@ -18,7 +18,7 @@
 	<!-- 0010-00BF in Stories of the Pilgrim Library-->
 	]>
 	
-<TranscendenceAdventure
+<ChroniclesAdventure
 		UNID=				"&unidStarsOfThePilgrim;"
 		name=				"Domina &amp; Oracus I: The Stars of the Pilgrim"
 		release=			"1" 
@@ -596,4 +596,4 @@
 	<Image UNID="&rsProlog1;"					bitmap="Resources\Prolog1.jpg"				loadOnUse="true" />
 	<Image UNID="&rsGalacticCoreMissionTile;"	bitmap="Resources\GalacticCoreMissionTile.jpg"				loadOnUse="true" />
 
-</TranscendenceAdventure>
+</ChroniclesAdventure>

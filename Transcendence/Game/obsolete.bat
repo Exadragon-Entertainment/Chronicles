@@ -1,1 +1,1 @@
-@transdata /nologo /typeTable /apiVersion:0 /criteria:"* +property:obsoleteVersion" /entity /obsoleteVersion
+@chrondata /nologo /typeTable /apiVersion:0 /criteria:"* +property:obsoleteVersion" /entity /obsoleteVersion

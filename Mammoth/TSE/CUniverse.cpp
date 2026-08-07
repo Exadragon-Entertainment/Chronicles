@@ -1169,23 +1169,23 @@ ALERROR CUniverse::Init (SInitDesc &Ctx, CString *retsError)
 			//	If we're always using the TDB, then just load that.
 
 			if (Ctx.bForceTDB)
-				sMainFilespec = CONSTLIT("Transcendence.tdb");
+				sMainFilespec = CONSTLIT("Chronicles.tdb");
 
 			//	Check the source subdirector first.
 
-			else if (pathExists("..\\TransCore\\Transcendence.xml"))
-				sMainFilespec = CONSTLIT("..\\TransCore\\Transcendence.xml");
+			else if (pathExists("..\\TransCore\\Chronicles.xml"))
+				sMainFilespec = CONSTLIT("..\\TransCore\\Chronicles.xml");
 
 			//	If we don't have it, then check the current directory for
 			//	backwards compatibility.
 
-			else if (pathExists("Transcendence.xml"))
-				sMainFilespec = CONSTLIT("Transcendence.xml");
+			else if (pathExists("Chronicles.xml"))
+				sMainFilespec = CONSTLIT("Chronicles.xml");
 
 			//	If nothing is found, then just load the TDB file.
 
 			else
-				sMainFilespec = CONSTLIT("Transcendence.tdb");
+				sMainFilespec = CONSTLIT("Chronicles.tdb");
 			}
 		else
 			{

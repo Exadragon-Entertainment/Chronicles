@@ -2,6 +2,99 @@
 //
 //	Included by IntroScreen.cpp
 
+//	Chronicles Credits
+
+
+static constexpr const char * CHRONICLES_ADDITIONAL_PROGRAMMING[] =
+	{
+	"George Moromisato",
+	"Ember Song",
+	};
+
+static constexpr int CHRONICLES_ADDITIONAL_PROGRAMMING_COUNT = (sizeof(CHRONICLES_ADDITIONAL_PROGRAMMING) / sizeof(CHRONICLES_ADDITIONAL_PROGRAMMING[0]));
+
+
+static constexpr const char *CHRONICLES_SPECIAL_THANKS[] =
+	{
+	"Jeremy \"AssumedPseudonym\" Skaggs",
+	"Joe \"Ttech\" Needleman",
+	"Avellis",					//	Need to check on preferred name
+	};
+
+static constexpr int CHRONICLES_SPECIAL_THANKS_COUNT = (sizeof(CHRONICLES_SPECIAL_THANKS) / sizeof(CHRONICLES_SPECIAL_THANKS[0]));
+
+static constexpr const char *CHRONICLES_LIBRARIES[] =
+	{
+	"Intel%&reg; JPEG Library",
+	"LodePNG",
+	"zlib",
+	};
+
+static constexpr int CHRONICLES_LIBRARIES_COUNT = (sizeof(CHRONICLES_LIBRARIES) / sizeof(CHRONICLES_LIBRARIES[0]));
+
+static constexpr const char *CHRONICLES_FEEDBACK[] =
+	{
+	//A
+	"Alana \"Skarrlyth\" Huitric",
+
+	//B
+	
+	//C
+
+	//D
+
+	//E
+
+	//F
+
+	//G
+
+	//H
+
+	//I
+
+	//J
+
+	//K
+	"Kayato",					//	Need to check on preferred name
+
+	//L
+
+	//M
+
+	//N
+
+	//O
+
+	//P
+
+	//Q
+
+	//R
+	"Raven",					//	Need to check on preferred name
+
+	//S
+	"Shadeflower",				//	Need to check on preferred name
+
+	//T
+
+	//U
+
+	//V
+
+	//W
+
+	//X
+
+	//Y
+
+	//Z
+	};
+
+static constexpr int CHRONICLES_FEEDBACK_COUNT = (sizeof(CHRONICLES_FEEDBACK) / sizeof(CHRONICLES_FEEDBACK[0]));
+
+//	Original Transcendence Credits as of 2.0a8 (forked version)
+
 static constexpr const char *ADDITIONAL_PROGRAMMING[] =
 	{
 	"Owen Embury (giantcabbage)",

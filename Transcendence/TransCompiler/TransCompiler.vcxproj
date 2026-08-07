@@ -70,6 +70,7 @@
     <ProjectGuid>{4A1A0260-94CB-4E72-ADF5-D927C291670C}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <XPDeprecationWarning>false</XPDeprecationWarning>
+    <ProjectName>ChronCompiler</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -309,7 +310,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransCompiler.pdb</ProgramDatabaseFile>
@@ -354,7 +355,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransCompiler.pdb</ProgramDatabaseFile>
@@ -398,7 +399,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransCompiler.pdb</ProgramDatabaseFile>
@@ -443,7 +444,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransCompiler.pdb</ProgramDatabaseFile>
@@ -487,7 +488,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransCompiler.pdb</ProgramDatabaseFile>
@@ -532,7 +533,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransCompiler.pdb</ProgramDatabaseFile>
@@ -574,7 +575,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransCompiler.pdb</ProgramDatabaseFile>
@@ -617,7 +618,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransCompiler.pdb</ProgramDatabaseFile>
@@ -659,7 +660,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransCompiler.pdb</ProgramDatabaseFile>
@@ -702,7 +703,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/TransCompiler.pdb</ProgramDatabaseFile>
@@ -745,7 +746,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransCompiler.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -789,7 +790,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransCompiler.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -833,7 +834,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransCompiler.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -876,7 +877,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransCompiler.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -918,7 +919,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransCompiler.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -961,7 +962,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>winhttp.lib; version.lib;vfw32.lib;winmm.lib;dsound.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Game/TransCompiler.exe</OutputFile>
+      <OutputFile>../Game/ChronCompiler.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TransCompiler.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -1046,7 +1047,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreComp.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="TDBCompiler.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ChronCompiler.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

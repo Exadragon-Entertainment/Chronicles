@@ -2,6 +2,7 @@
 //
 //	Version numbers and history
 //	Copyright (c) 2017 Kronosaur Productions, LLC. All Rights Reserved.
+//	Copyright (c) 2026 by Exadragon LLC. All Rights Reserved.
 
 #pragma once
 
@@ -9,11 +10,19 @@ constexpr DWORD API_VERSION =							59;
 constexpr DWORD UNIVERSE_SAVE_VERSION =					41;
 constexpr DWORD SYSTEM_SAVE_VERSION =					221;
 
+//	This is the max transcendence API version we can confirm safe cross-game support for
+//	because Transcendence's API is a subset of Chronicle's API up till this point
+
+constexpr DWORD TRANSCENDENCE_MAX_SAFE_API_VERSION =	59;
+
 //	Uncomment out the following define when building a stable release
 
-//#define TRANSCENDENCE_STABLE_RELEASE
+//#define CHRONICLES_STABLE_RELEASE
 
 //	API VERSION HISTORY ---------------------------------------------------
+// 
+//	Note: API versions <59 refer to Transcendence API versions
+//	the first Chronicles API version is 59
 //
 //	 0: Unknown version (0.9 or older)
 //
@@ -981,7 +990,16 @@ constexpr DWORD SYSTEM_SAVE_VERSION =					221;
 //				Default: (reads adventure default:
 //					0.0 for single hull stations, 1.0 for multi/asteroid/underground)
 //
-//	 59: 2.0 Alpha 9
+//	 59: Chronicles 0.1
+//		<ChroniclesUniverse>
+//			New base universe doctype
+//		<ChroniclesAdventure> <ChroniclesExtension> <ChroniclesLibrary>
+//			New doctype
+//			Min API 59
+//		<TranscendenceAdventure> <TranscendenceExtension> <TranscendenceLibrary>
+//			Incomplete support starting Chronicles API 60
+//			Warning will print if one is loaded with API >59
+//			Transcendence API 59 is supported as it is strictly a subset of Chronicles API 59
 //		tlisp:
 //			(?= ...)
 //				Returns true if a valid full-coercion comparison (via =, !=, etc)

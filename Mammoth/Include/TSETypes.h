@@ -2,6 +2,7 @@
 //
 //	Basic types
 //	Copyright 2012 by Kronosaur Productions, LLC. All Rights Reserved.
+//	Copyright 2026 by Exadragon LLC. All Rights Reserved.
 
 #pragma once
 
@@ -269,9 +270,12 @@ static constexpr DWORD UNID_PILGRIM_CHARACTER_CLASS =			0x00201002;
 static constexpr DWORD UNID_RPG_LIBRARY =						0x00010000;
 static constexpr DWORD UNID_UNIVERSE_LIBRARY =					0x00020000;
 static constexpr DWORD UNID_CORE_TYPES_LIBRARY =				0x00030000;
+static constexpr DWORD UNID_TACTICAL_AI_LIBRARY =				0x00040000;
 static constexpr DWORD UNID_HUMAN_SPACE_LIBRARY =				0x00100000;
 static constexpr DWORD UNID_COMPATIBILITY_LIBRARY_API26 =		0x00700000;
 static constexpr DWORD UNID_COMPATIBILITY_LIBRARY_API54 =		0x00710000;
+static constexpr DWORD UNID_HUMAN_SPACE_2_LIBRARY =				0x00A00000;
+static constexpr DWORD UNID_SANDBOX_LIBRARY =					0x03000000;
 
 //	This section defines the default adventure to use on a fresh install
 //	It should be defined by the TranscendenceUniverse
