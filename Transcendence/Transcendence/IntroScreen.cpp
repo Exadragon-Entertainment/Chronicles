@@ -422,10 +422,18 @@ void CTranscendenceWnd::CreateLongCreditsAnimation (int x, int y, int cyHeight, 
 	//pAni->AddTextLine(CONSTLIT("Transcendence is a registered trademark of Kronosaur Productions, LLC."), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
 	//pAni->AddTextLine(CONSTLIT("http://transcendence-game.com"), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
 
+	//	WIP and old assets notice/attribution
+
+	pAni->AddTextLine(CONSTLIT("Chronicles is a work-in-progress game built upon Transcendence"), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
+	pAni->AddTextLine(CONSTLIT("expanding the world and lore of the shared setting."), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
+	pAni->AddTextLine(CONSTLIT("Chronicles introduces new assets and systems while continuing to"), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
+	pAni->AddTextLine(CONSTLIT("also use and remaster the foundational code, art, and music from"), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
+	pAni->AddTextLine(CONSTLIT("Transcendence."), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
+
 	//	Original game attribution
 
 	pAni->AddTextLine(CONSTLIT("Chronicles is a licensed fork of"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
-	pAni->AddTextLine(CONSTLIT("Transcendence 2.0 alpha 8"), &m_Fonts.SubTitle, m_Fonts.rgbTitleColor, CG16bitFont::AlignCenter);
+	pAni->AddTextLine(CONSTLIT("Transcendence"), &m_Fonts.SubTitle, m_Fonts.rgbTitleColor, CG16bitFont::AlignCenter);
 	pAni->AddTextLine(CONSTLIT("Transcendence is a registered trademark of Kronosaur Productions, LLC."), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
 	pAni->AddTextLine(CONSTLIT("http://transcendence-game.com"), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
 	
