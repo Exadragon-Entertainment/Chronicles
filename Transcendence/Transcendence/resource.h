@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by Transcendence.rc
+// Used by Chronicles.rc
 //
 #define IDR_TITLE_IMAGE                 102
 #define IDR_STARGATE_IMAGE              103

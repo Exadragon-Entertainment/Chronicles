@@ -1354,7 +1354,7 @@
     <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="TransData.rc" />
+    <ResourceCompile Include="ChronData.rc" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Alchemy\CodeChain\CodeChain.vcxproj">

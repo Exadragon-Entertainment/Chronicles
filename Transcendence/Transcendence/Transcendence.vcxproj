@@ -2149,7 +2149,7 @@
     <None Include="Resources\Title.dxfn" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Transcendence.rc" />
+    <ResourceCompile Include="Chronicles.rc" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Alchemy\CodeChain\CodeChain.vcxproj">
