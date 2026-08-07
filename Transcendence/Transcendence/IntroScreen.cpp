@@ -156,32 +156,47 @@ void CTranscendenceWnd::CreateCreditsAnimation (IAnimatron **retpAnimatron)
 	//	Create credits
 
 	TArray<CString> Names;
-	Names.Insert(CONSTLIT("George Moromisato"));
-	m_UIRes.CreateMediumCredit(CONSTLIT("designed & created by"), 
-			Names,
-			xMidCenter,
-			yMidCenter,
-			CREDIT_DURATION,
-			&pAnimation);
+
+	//	Chronicles main credits
+
+	Names.DeleteAll();
+	Names.Insert(CONSTLIT("ExaDragon LLC"));
+	m_UIRes.CreateMediumCredit(CONSTLIT("Chronicles designed & created by"),
+		Names,
+		xMidCenter,
+		yMidCenter,
+		CREDIT_DURATION,
+		&pAnimation);
 	pSeq->AddTrack(pAnimation, iTime);
 	iTime += pAnimation->GetDuration();
 
 	Names.DeleteAll();
-	Names.Insert(CONSTLIT("Michael Tangent"));
-	m_UIRes.CreateMediumCredit(CONSTLIT("music by"), 
-			Names,
-			xMidCenter,
-			yMidCenter,
-			CREDIT_DURATION,
-			&pAnimation);
+	Names.Insert(CONSTLIT("Alex \"Arisaya\" Huitric"));
+	m_UIRes.CreateMediumCredit(CONSTLIT("game director & lead designer"),
+		Names,
+		xMidCenter,
+		yMidCenter,
+		CREDIT_DURATION,
+		&pAnimation);
+	pSeq->AddTrack(pAnimation, iTime);
+	iTime += pAnimation->GetDuration();
+
+	Names.DeleteAll();
+	Names.Insert(CONSTLIT("Joseph \"Tivurnis\" Skerratt"));
+	m_UIRes.CreateMediumCredit(CONSTLIT("artist, writer & content developer"),
+		Names,
+		xMidCenter,
+		yMidCenter,
+		CREDIT_DURATION,
+		&pAnimation);
 	pSeq->AddTrack(pAnimation, iTime);
 	iTime += pAnimation->GetDuration();
 
 	//	More programming
 
 	Names.DeleteAll();
-	for (int i = 0; i < ADDITIONAL_PROGRAMMING_COUNT; i++)
-		Names.Insert(strPatternSubst(ADDITIONAL_PROGRAMMING[i]));
+	for (int i = 0; i < CHRONICLES_ADDITIONAL_PROGRAMMING_COUNT; i++)
+		Names.Insert(strPatternSubst(CHRONICLES_ADDITIONAL_PROGRAMMING[i]));
 
 	m_UIRes.CreateMediumCredit(CONSTLIT("additional programming by"),
 			Names,
@@ -195,8 +210,8 @@ void CTranscendenceWnd::CreateCreditsAnimation (IAnimatron **retpAnimatron)
 	//	Special thanks
 
 	Names.DeleteAll();
-	for (int i = 0; i < SPECIAL_THANKS_COUNT; i++)
-		Names.Insert(strPatternSubst(SPECIAL_THANKS[i]));
+	for (int i = 0; i < CHRONICLES_SPECIAL_THANKS_COUNT; i++)
+		Names.Insert(strPatternSubst(CHRONICLES_SPECIAL_THANKS[i]));
 
 	m_UIRes.CreateMediumCredit(CONSTLIT("special thanks to"),
 			Names,
@@ -279,62 +294,46 @@ void CTranscendenceWnd::CreateLongCreditsAnimation (int x, int y, int cyHeight, 
 	pAni->SetPropertyMetric(CONSTLIT("viewportHeight"), (Metric)cyHeight);
 	pAni->SetPropertyMetric(CONSTLIT("fadeEdgeHeight"), (Metric)(cyHeight / 8));
 
-	//	Inspiration, Ideas, and Testing
+	//	Feedback and Testing
 
-	pAni->AddTextLine(CONSTLIT("ideas & testing"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter);
+	pAni->AddTextLine(CONSTLIT("testing & feedback"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter);
 
 	//	Add names
 
-	for (i = 0; i < FEEDBACK_COUNT; i++)
-		pAni->AddTextLine(strPatternSubst(FEEDBACK[i]), 
-				&m_Fonts.Header, 
-				m_Fonts.rgbTitleColor, 
-				CG16bitFont::AlignCenter,
-				(i == 0 ? m_Fonts.Header.GetHeight() : 0));
+	for (i = 0; i < CHRONICLES_FEEDBACK_COUNT; i++)
+		pAni->AddTextLine(strPatternSubst(CHRONICLES_FEEDBACK[i]),
+			&m_Fonts.Header,
+			m_Fonts.rgbTitleColor,
+			CG16bitFont::AlignCenter,
+			(i == 0 ? m_Fonts.Header.GetHeight() : 0));
 
-	//	Software
-
-	pAni->AddTextLine(CONSTLIT("created using"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
-	for (i = 0; i < SOFTWARE_COUNT; i++)
-		pAni->AddTextLine(strPatternSubst(SOFTWARE[i]), 
-				&m_Fonts.Header, 
-				m_Fonts.rgbTitleColor, 
-				CG16bitFont::AlignCenter,
-				(i == 0 ? m_Fonts.Header.GetHeight() : 0));
-
-	//	Inspiration
-
-	pAni->AddTextLine(CONSTLIT("with inspiration from"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
-	for (i = 0; i < INSPIRATION_COUNT; i++)
-		pAni->AddTextLine(strPatternSubst(INSPIRATION[i]), 
-				&m_Fonts.Header, 
-				m_Fonts.rgbTitleColor, 
-				CG16bitFont::AlignCenter,
-				(i == 0 ? m_Fonts.Header.GetHeight() : 0));
-
-	//	Extensions credit. Build a list of all extensions 
+	//	Extensions (These are DLCs, game-libraries, and mods)
+	// 
+	//	These come before the original game credits because they are active/alive code
+	// 
+	//	Build a list of all extensions 
 	//	that need to be credited.
 
 	struct SExtCredit
-		{
+	{
 		TArray<CString> Extensions;
 		TArray<CString> Credits;
-		};
+	};
 
 	TArray<SExtCredit> ExtCredit;
 
 	for (i = 0; i < g_pUniverse->GetExtensionDescCount(); i++)
-		{
-		const CExtension *pExt = g_pUniverse->GetExtensionDesc(i);
+	{
+		const CExtension* pExt = g_pUniverse->GetExtensionDesc(i);
 		if (!pExt->GetName().IsBlank() && pExt->GetCredits().GetCount() > 0)
-			{
+		{
 			//	See if we already have an extension with the same credits
 
-			SExtCredit *pFound = NULL;
+			SExtCredit* pFound = NULL;
 			for (j = 0; j < ExtCredit.GetCount() && pFound == NULL; j++)
-				{
+			{
 				if (ExtCredit[j].Credits.GetCount() == pExt->GetCredits().GetCount())
-					{
+				{
 					int k;
 
 					bool bSame = true;
@@ -344,14 +343,14 @@ void CTranscendenceWnd::CreateLongCreditsAnimation (int x, int y, int cyHeight, 
 
 					if (bSame)
 						pFound = &ExtCredit[j];
-					}
 				}
+			}
 
 			//	If we found a duplicate, then add the extension
 			//	to the struct
 
 			if (pFound)
-				{
+			{
 				//	Make sure we don't already have an extension of the same name listed
 
 				bool bDuplicate = false;
@@ -361,18 +360,18 @@ void CTranscendenceWnd::CreateLongCreditsAnimation (int x, int y, int cyHeight, 
 
 				if (!bDuplicate)
 					pFound->Extensions.Insert(strToLower(pExt->GetName()));
-				}
+			}
 
 			//	Otherwise, add the new entry
 
 			else
-				{
-				SExtCredit *pNew = ExtCredit.Insert();
+			{
+				SExtCredit* pNew = ExtCredit.Insert();
 				pNew->Extensions.Insert(strToLower(pExt->GetName()));
 				pNew->Credits = pExt->GetCredits();
-				}
 			}
 		}
+	}
 
 	//	Add all the credits
 
@@ -415,12 +414,95 @@ void CTranscendenceWnd::CreateLongCreditsAnimation (int x, int y, int cyHeight, 
 					(j == 0 ? m_Fonts.Header.GetHeight() : 0));
 		}
 
-	//	Copyright
+	//	Chronicles Copyright
 
 	pAni->AddTextLine(m_sVersion, &m_Fonts.SubTitle, m_Fonts.rgbTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
 	pAni->AddTextLine(m_sCopyright, &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
-	pAni->AddTextLine(CONSTLIT("Transcendence is a registered trademark"), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
+	//	Replace these with our trademark and website once those are set up.
+	//pAni->AddTextLine(CONSTLIT("Transcendence is a registered trademark of Kronosaur Productions, LLC."), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
+	//pAni->AddTextLine(CONSTLIT("http://transcendence-game.com"), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
+
+	//	Original game attribution
+
+	pAni->AddTextLine(CONSTLIT("Chronicles is a licensed fork of"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
+	pAni->AddTextLine(CONSTLIT("Transcendence 2.0 alpha 8"), &m_Fonts.SubTitle, m_Fonts.rgbTitleColor, CG16bitFont::AlignCenter);
+	pAni->AddTextLine(CONSTLIT("Transcendence is a registered trademark of Kronosaur Productions, LLC."), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
 	pAni->AddTextLine(CONSTLIT("http://transcendence-game.com"), &m_Fonts.Medium, m_Fonts.rgbTextColor, CG16bitFont::AlignCenter);
+	
+	//	Original game credits roll
+	// 
+	//	Original creator
+
+	pAni->AddTextLine(CONSTLIT("Transcendence designed & created by"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
+	pAni->AddTextLine(CONSTLIT("George Moromisato"),
+		&m_Fonts.Header,
+		m_Fonts.rgbTitleColor,
+		CG16bitFont::AlignCenter,
+		(i == 0 ? m_Fonts.Header.GetHeight() : 0));
+
+	//	Original music
+
+	pAni->AddTextLine(CONSTLIT("music by"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
+	pAni->AddTextLine(CONSTLIT("Michael Tangent"),
+		&m_Fonts.Header,
+		m_Fonts.rgbTitleColor,
+		CG16bitFont::AlignCenter,
+		(i == 0 ? m_Fonts.Header.GetHeight() : 0));
+
+	//	Original additional programming
+
+	pAni->AddTextLine(CONSTLIT("additional programming"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
+
+	for (i = 0; i < ADDITIONAL_PROGRAMMING_COUNT; i++)
+		pAni->AddTextLine(strPatternSubst(ADDITIONAL_PROGRAMMING[i]),
+			&m_Fonts.Header,
+			m_Fonts.rgbTitleColor,
+			CG16bitFont::AlignCenter,
+			(i == 0 ? m_Fonts.Header.GetHeight() : 0));
+
+	//	Original special thanks
+
+	pAni->AddTextLine(CONSTLIT("special thanks"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
+
+	for (i = 0; i < SPECIAL_THANKS_COUNT; i++)
+		pAni->AddTextLine(strPatternSubst(SPECIAL_THANKS[i]),
+			&m_Fonts.Header,
+			m_Fonts.rgbTitleColor,
+			CG16bitFont::AlignCenter,
+			(i == 0 ? m_Fonts.Header.GetHeight() : 0));
+
+	//	Inspiration, Ideas, and Testing
+
+	pAni->AddTextLine(CONSTLIT("ideas & testing"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
+
+	//	Add names
+
+	for (i = 0; i < FEEDBACK_COUNT; i++)
+		pAni->AddTextLine(strPatternSubst(FEEDBACK[i]), 
+				&m_Fonts.Header, 
+				m_Fonts.rgbTitleColor, 
+				CG16bitFont::AlignCenter,
+				(i == 0 ? m_Fonts.Header.GetHeight() : 0));
+
+	//	Software
+
+	pAni->AddTextLine(CONSTLIT("created using"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
+	for (i = 0; i < SOFTWARE_COUNT; i++)
+		pAni->AddTextLine(strPatternSubst(SOFTWARE[i]), 
+				&m_Fonts.Header, 
+				m_Fonts.rgbTitleColor, 
+				CG16bitFont::AlignCenter,
+				(i == 0 ? m_Fonts.Header.GetHeight() : 0));
+
+	//	Inspiration
+
+	pAni->AddTextLine(CONSTLIT("with inspiration from"), &m_Fonts.SubTitle, m_Fonts.rgbLightTitleColor, CG16bitFont::AlignCenter, m_Fonts.Title.GetHeight());
+	for (i = 0; i < INSPIRATION_COUNT; i++)
+		pAni->AddTextLine(strPatternSubst(INSPIRATION[i]), 
+				&m_Fonts.Header, 
+				m_Fonts.rgbTitleColor, 
+				CG16bitFont::AlignCenter,
+				(i == 0 ? m_Fonts.Header.GetHeight() : 0));
 
 	//	Animate
 
