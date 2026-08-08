@@ -257,7 +257,7 @@ ALERROR WriteGameFile (CTDBCompiler &Ctx, const CString &sFilespec, bool bCompre
 	CFileReadBlock theFile(pathAddComponent(Ctx.GetRootPath(), sFilespec));
 	if (error = theFile.Open())
 		{
-		Ctx.ReportError(strPatternSubst(CONSTLIT("Unable to open '%s'."), sFilespec));
+		Ctx.ReportError(strPatternSubst(CONSTLIT("Unable to open game file '%s'."), sFilespec));
 		return error;
 		}
 
@@ -283,7 +283,7 @@ ALERROR WriteGameFile (CTDBCompiler &Ctx, const CString &sFilespec, bool bCompre
 
 	if (error = Out.AddEntry(sData, retiGameFile))
 		{
-		Ctx.ReportError(strPatternSubst(CONSTLIT("Unable to store '%s'."), sFilespec));
+		Ctx.ReportError(strPatternSubst(CONSTLIT("Unable to store game file '%s'."), sFilespec));
 		return error;
 		}
 
@@ -342,10 +342,13 @@ ALERROR WriteModule (CTDBCompiler &Ctx,
 
 	CXMLElement *pModule;
 	CExternalEntityTable *pEntityTable = new CExternalEntityTable;
-	CFileReadBlock DataFile(pathAddComponent(Ctx.GetRootPath(), sFilename));
+	CString sFilenameOnly = pathGetFilename(sFilename);
+	CString sRelativeModulePath = sFolder.GetLength() ? pathAddComponent(sFolder, sFilenameOnly) : sFilenameOnly;
+	CString sModuleFullPath = pathAddComponent(Ctx.GetRootPath(), sRelativeModulePath);
+	CFileReadBlock DataFile(sModuleFullPath);
 	CString sError;
 
-	printf("Parsing %s...", sFilename.GetASCIIZPointer());
+	printf("Parsing %s...", sRelativeModulePath.GetASCIIZPointer());
 	if (error = CXMLElement::ParseXML(&DataFile, Ctx.GetCoreEntities(), &pModule, &sError, pEntityTable))
 		{
 		printf("\n");
@@ -377,14 +380,14 @@ ALERROR WriteModule (CTDBCompiler &Ctx,
 	//	Write the module itself
 
 	int iEntry;
-	if (error = WriteGameFile(Ctx, sFilename, bCompress, Out, &iEntry))
+	if (error = WriteGameFile(Ctx, sRelativeModulePath, bCompress, Out, &iEntry))
 		return error;
 
 	//	If the caller doesn't want the module entry, then it means that this is
 	//	a module (instead of the main file). If so, add it to the resources table
 
 	if (retiModuleEntry == NULL)
-		Ctx.AddResource(sFilename, iEntry, bCompress);
+		Ctx.AddResource(sRelativeModulePath, iEntry, bCompress);
 
 	//	Store all the image resources
 
@@ -420,8 +423,10 @@ ALERROR WriteModule (CTDBCompiler &Ctx,
 			if (pItem->FindAttribute(ATTRIB_FILENAME, &sFilename))
 				{
 				//	Write out the module, making sure to set the core flag.
+				CString sModuleFolder = pathGetPath(sFilename);
+				CString sSubFolder = sModuleFolder.GetLength() ? pathAddComponent(sFolder, sModuleFolder) : sFolder;
 
-				if (error = WriteModule(Ctx, sFilename, sFolder, Out, NULL, true))
+				if (error = WriteModule(Ctx, sFilename, sSubFolder, Out, NULL, true))
 					return error;
 
 				//	We ignore any other elements.
@@ -472,14 +477,18 @@ ALERROR WriteSubModules (CTDBCompiler &Ctx,
 				CXMLElement *pDesc = pItem->GetContentElement(j);
 
 				CString sFilename = pDesc->GetAttribute(ATTRIB_FILENAME);
-				if (WriteModule(Ctx, sFilename, sFolder, Out) != NOERROR)
+				CString sModuleFolder = pathGetPath(sFilename);
+				CString sSubFolder = sModuleFolder.GetLength() ? pathAddComponent(sFolder, sModuleFolder) : sFolder;
+				if (WriteModule(Ctx, sFilename, sSubFolder, Out) != NOERROR)
 					continue;
 				}
 			}
 		else if (strEquals(pItem->GetTag(), TAG_MODULE))
 			{
 			CString sFilename = pItem->GetAttribute(ATTRIB_FILENAME);
-			if (WriteModule(Ctx, sFilename, sFolder, Out) != NOERROR)
+			CString sModuleFolder = pathGetPath(sFilename);
+			CString sSubFolder = sModuleFolder.GetLength() ? pathAddComponent(sFolder, sModuleFolder) : sFolder;
+			if (WriteModule(Ctx, sFilename, sSubFolder, Out) != NOERROR)
 				continue;
 			}
 		}
