@@ -180,6 +180,6 @@
 
 <!-- CORE ADVENTURE ======================================================== -->
 
-	<ChroniclesAdventure filename="StarsOfThePilgrim.xml"/>
+	<ChroniclesAdventure filename="StarsOfThePilgrim/StarsOfThePilgrim.xml"/>
 		
 </ChroniclesUniverse>

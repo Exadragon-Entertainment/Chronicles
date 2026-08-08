@@ -18,6 +18,6 @@
 	<Library unid="&unidHumanSpaceLibrary;"/>
 		
 	<Module filename="Compatibility10.xml"/>
-	<Module filename="PlayerShips.xml"/>
+	<Module filename="StarsOfThePilgrim/PlayerShips.xml"/>
 
 </TranscendenceLibrary>
